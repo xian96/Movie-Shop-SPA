@@ -10,13 +10,13 @@ import { Movie } from 'src/app/shared/models/movie';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private movieService: MovieService) { }
-
   movieId: number;
   movie: Movie;
+  constructor(private route: ActivatedRoute, private movieService: MovieService) { }
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(
-      p =>{
+      p => {
         this.movieId = + p.get('id');
         console.log(this.movieId);
         // make a call to movie service to get moe details;
@@ -25,9 +25,9 @@ export class MovieDetailsComponent implements OnInit {
             this.movie = m;
             console.log(this.movie);
           }
-        )
+        );
       }
-    )
+    );
   }
 
 }
